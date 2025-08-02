@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare AI Project | Pradesha S</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary: rgba(108, 99, 255, 0.8);
+            --primary-solid: #6c63ff;
+            --secondary: rgba(77, 68, 219, 0.8);
+            --dark: #1a1a2e;
+            --light: rgba(255, 255, 255, 0.9);
+            --glass: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: var(--light);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Glassmorphism Card Style */
+        .glass-card {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 15px;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        /* Header Styles */
+        header {
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            padding: 20px 0;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--primary-solid), #a162e8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--light);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: var(--primary-solid);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Project Detail Section */
+        .project-detail {
+            padding: 150px 0 80px;
+        }
+        
+        .project-detail h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            background: linear-gradient(to right, #fff, #ddd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .project-meta {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .project-meta span {
+            padding: 6px 15px;
+            background: rgba(108, 99, 255, 0.1);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid var(--glass-border);
+        }
+        
+        .project-content {
+            display: flex;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .featured-image {
+            width: 60%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            object-fit: cover;
+        }
+        
+        .project-description {
+            flex: 1;
+        }
+        
+        .project-description h2 {
+            margin: 30px 0 15px;
+            font-size: 1.8rem;
+            color: var(--light);
+            position: relative;
+        }
+        
+        .project-description h2::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            bottom: -8px;
+            left: 0;
+            background: var(--primary-solid);
+            border-radius: 3px;
+        }
+        
+        .project-description p {
+            color: rgba(255,255,255,0.85);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        
+        .tech-tag {
+            background: rgba(108, 99, 255, 0.1);
+            padding: 8px 15px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            border: 1px solid var(--glass-border);
+        }
+        
+        .features-list {
+            margin-left: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .features-list li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 20px;
+            color: rgba(255,255,255,0.85);
+        }
+        
+        .features-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--primary-solid);
+            font-size: 1.2rem;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 30px;
+            background: linear-gradient(45deg, var(--primary-solid), #a162e8);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(108, 99, 255, 0.3);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(108, 99, 255, 0.4);
+        }
+        
+        .btn i {
+            margin-right: 8px;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary-solid);
+            color: var(--primary-solid);
+        }
+        
+        .btn-outline:hover {
+            background: linear-gradient(45deg, var(--primary-solid), #a162e8);
+            color: white;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            border-top: 1px solid var(--glass-border);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: var(--glass);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light);
+            transition: all 0.3s;
+            border: 1px solid var(--glass-border);
+            text-decoration: none;
+        }
+        
+        .social-links a:hover {
+            background: var(--primary-solid);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .project-content {
+                flex-direction: column;
+            }
+            
+            .featured-image {
+                width: 100%;
+            }
+            
+            .project-detail h1 {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .project-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .project-description h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="glass-card">
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">Pradesha S</a>
+                <div class="nav-links">
+                    <a href="index.html#home">Home</a>
+                    <a href="index.html#about">About</a>
+                    <a href="index.html#projects">Projects</a>
+                    
+                    <a href="index.html#training">Training</a>
+                    <a href="index.html#contact">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Project Detail Section -->
+    <section class="project-detail">
+        <div class="container">
+            <h1>Motion Tracking and Analysis Using OpenCV</h1>
+            <div class="project-meta">
+                <span class="date">Febraury 2025</span>
+            </div>
+            
+            <div class="project-content">
+                <img src="https://i0.wp.com/innovationyourself.com/wp-content/uploads/2023/09/featured-1.jpg?fit=1200%2C675&ssl=1" alt="Healthcare AI Screenshot" class="featured-image">
+                
+                <div class="project-description">
+                    <h2>About the Project</h2>
+                    <p>A desktop-based system to detect and track object movement from live video or file input using computer vision.</p>
+                    
+                    <h2>Technologies Used</h2>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">OpenCV</span>
+                        <span class="tech-tag">Flask</span>
+                        <span class="tech-tag">HTML/CSS</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">video input</span>
+                        <span class="tech-tag">NumPy</span>
+                    </div>
+                    
+                    <h2>Key Features</h2>
+                    <ul class="features-list">
+                        <li>Designed a Python tool that analyzes movement in uploaded videos to measure speed,acceleration, and direction.</li>
+                        <li>Applied edge detection, frame differencing, and contour analysis.</li>
+                        <li>Used Numpy for mathematical computations and plotted results using Matplotlib.</li>
+                    </ul>
+                    
+                    <div class="project-links">
+                     
+                        <a href="https://github.com/Pradesha3112/Object-Motion-Analysis" class="btn btn-outline" target="_blank">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/pradesha" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/Pradesha3112" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="mailto:pradesha3112@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

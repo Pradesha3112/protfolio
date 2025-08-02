@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pradesha S | Glassmorphism Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary: rgba(108, 99, 255, 0.8);
+            --primary-solid: #6c63ff;
+            --secondary: rgba(77, 68, 219, 0.8);
+            --dark: #1a1a2e;
+            --light: rgba(255, 255, 255, 0.9);
+            --glass: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: var(--light);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .blob {
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.3;
+            z-index: -1;
+            animation: float 15s infinite ease-in-out;
+        }
+        
+        .blob:nth-child(1) {
+            background: var(--primary);
+            top: -100px;
+            left: -100px;
+        }
+        
+        .blob:nth-child(2) {
+            background: #ff6b6b;
+            bottom: -100px;
+            right: -100px;
+            animation-delay: 5s;
+        }
+          .more-projects {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(108, 99, 255, 0.1);
+        border: 2px dashed var(--glass-border);
+    }
+    
+    .more-projects:hover {
+        background: rgba(108, 99, 255, 0.2);
+        transform: translateY(-5px);
+    }
+    
+    .more-projects-content {
+        text-align: center;
+        padding: 20px;
+    }
+    
+    .more-projects i {
+        font-size: 3rem;
+        margin-bottom: 15px;
+        color: var(--primary-solid);
+    }
+    
+    .more-projects h3 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        color: white;
+    }
+    
+    .more-projects p {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 1rem;
+    }
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0);
+            }
+            50% {
+                transform: translate(50px, 50px);
+            }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Glassmorphism Card Style */
+        .glass-card {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 15px;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Header Styles */
+        header {
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            padding: 20px 0;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--primary-solid), #a162e8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--light);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: var(--primary-solid);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 600px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            background: linear-gradient(to right, #fff, #ddd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero h1 span {
+            background: linear-gradient(to right, var(--primary-solid), #a162e8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 30px;
+            background: linear-gradient(45deg, var(--primary-solid), #a162e8);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(108, 99, 255, 0.3);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(108, 99, 255, 0.4);
+        }
+        
+        .btn i {
+            margin-right: 8px;
+        }
+        
+        .hero-image {
+            position: absolute;
+            right: 0;
+            width: 45%;
+            height: 80%;
+            background: url('https://images.unsplash.com/photo-1575089976121-8ed7b2a54265?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80') center/cover no-repeat;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(108, 99, 255, 0.3), rgba(161, 98, 232, 0.3));
+        }
+        
+        /* About Section */
+        section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 4px;
+            bottom: -10px;
+            left: 0;
+            background: linear-gradient(to right, var(--primary-solid), #a162e8);
+            border-radius: 2px;
+        }
+        
+        .about-content {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .skills {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        
+        .skill-category {
+            margin-bottom: 20px;
+        }
+        
+        .skill-category h3 {
+            margin-bottom: 15px;
+            color: var(--primary-solid);
+            font-size: 1.2rem;
+        }
+        
+        .skill-tag {
+            display: inline-block;
+            padding: 8px 15px;
+            background: rgba(108, 99, 255, 0.1);
+            border-radius: 50px;
+            margin: 0 10px 10px 0;
+            font-size: 0.9rem;
+            border: 1px solid var(--glass-border);
+        }
+        .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    position: relative;
+    height: 250px;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.project-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(10, 10, 20, 0.95), rgba(10, 10, 20, 0.7));
+    padding: 25px 20px;
+    transform: translateY(100%);
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.project-card:hover .project-overlay {
+    transform: translateY(0);
+}
+
+.project-card:hover .project-image {
+    transform: scale(1.1);
+}
+
+.project-info h3 {
+    margin-bottom: 12px;
+    font-size: 1.4rem;
+    color: #ffffff;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.project-info p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.project-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.project-links a {
+    color: #ffffff;
+    font-size: 0.95rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    padding: 6px 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.project-links a:hover {
+    color: var(--primary-solid);
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.project-links i {
+    font-size: 1rem;
+}
+        
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .contact-card {
+            text-align: center;
+            padding: 40px 20px;
+        }
+        
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 20px;
+            background: rgba(108, 99, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary-solid);
+            border: 1px solid var(--glass-border);
+        }
+        
+        .contact-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .contact-card a {
+            color: var(--light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .contact-card a:hover {
+            color: var(--primary-solid);
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            border-top: 1px solid var(--glass-border);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: var(--glass);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light);
+            transition: all 0.3s;
+            border: 1px solid var(--glass-border);
+        }
+        
+        .social-links a:hover {
+            background: var(--primary-solid);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate {
+            animation: fadeIn 1s ease forwards;
+        }
+        
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero-image {
+                width: 50%;
+                opacity: 0.5;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                height: auto;
+                padding: 150px 0 100px;
+            }
+            
+            .hero-content {
+                max-width: 100%;
+            }
+            
+            .hero-image {
+                position: relative;
+                width: 100%;
+                height: 300px;
+                margin-top: 50px;
+                opacity: 1;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .skills {
+                width: 100%;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .nav-links {
+                gap: 15px;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Blobs -->
+    <div class="blob"></div>
+    <div class="blob"></div>
+
+    <!-- Header -->
+    <header class="glass-card">
+        <div class="container">
+            <nav>
+                <div class="logo">Pradesha S</div>
+                <div class="nav-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#training">Training</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content animate">
+                <h1>Hi, I'm <span>PRADESHA S</span></h1>
+                <p class="delay-1">Aspiring Frontend Developer with passion for creating beautiful, interactive web experiences.</p>
+                <a href="#projects" class="btn delay-2"><i class="fas fa-code"></i> View My Work</a>
+            </div>
+              </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title animate">About <span>Me</span></h2>
+            <div class="about-content">
+                <div class="about-text glass-card animate">
+                    <p>I'm a passionate IT student with expertise in frontend development and a keen interest in AI applications. I specialize in creating responsive, user-friendly interfaces with modern technologies.</p>
+                    <p>My journey in tech began with Python and has expanded to include full-stack web development capabilities. I'm constantly learning and experimenting with new frameworks and design patterns.</p>
+                    <p>When I'm not coding, you can find me exploring UI/UX design principles, contributing to open source projects, or participating in hackathons and coding challenges.</p>
+                </div>
+
+         </div>
+        </div>
+    </section>
+    <div class="container">
+ <h2 class="section-title animate">My <span>Skills</span></h2>
+                      
+                <div class="skills">
+                    <div class="skill-category glass-card animate delay-1">
+                        <h3>Languages</h3>
+                        <div>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">HTML</span>
+                            <span class="skill-tag">CSS</span>
+                            <span class="skill-tag">JavaScript</span>
+                        </div>
+                    </div>
+                    <div class="skill-category glass-card animate delay-1">
+                        <h3>Frameworks & Tools</h3>
+                        <div>
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">Figma</span>
+                            <span class="skill-tag">VS Code</span>
+                        </div>
+                    </div>
+                    <div class="skill-category glass-card animate delay-2">
+                        <h3>Libraries</h3>
+                        <div>
+                            <span class="skill-tag">OpenCV</span>
+                            <span class="skill-tag">NumPy</span>
+                            <span class="skill-tag">Pandas</span>
+                            <span class="skill-tag">TensorFlow</span>
+                        </div>
+                    </div>
+                    <div class="skill-category glass-card animate delay-2">
+                        <h3>Design</h3>
+                        <div>
+                            <span class="skill-tag">UI/UX</span>
+                            <span class="skill-tag">Responsive Design</span>
+                            <span class="skill-tag">Prototyping</span>
+                            <span class="skill-tag">Wireframing</span>
+                        </div>
+                    </div>
+               </div> </div>
+           
+     
+      <section id="projects" class="projects">
+    <div class="container">
+        <h2 class="section-title animate">My <span>Projects</span></h2>
+        <div class="projects-grid">
+            <!-- Project 1 - IMDB_CLONE -->
+                         <a href="imdb_clone.html" class="project-card glass-card animate">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3YbL57-qpZH5Mru3pMRcj4O1r4N0WPB_P3A&s" alt="Healthcare AI" class="project-image">
+                <div class="project-overlay">
+                    <div class="project-info">
+                        <h3>MovieDB</h3>
+                        <p>Fast, Responsive & Feature-Packed – The Future of Movie Lists.</p>
+                        <div class="project-links">
+                            <span>View Details <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="healthcare-ai.html" class="project-card glass-card animate">
+                <img src="https://gistlabs.ai/hs-fs/hubfs/AI-Health-Check.png?width=800&name=AI-Health-Check.png" alt="Healthcare AI" class="project-image">
+                <div class="project-overlay">
+                    <div class="project-info">
+                        <h3>Healthcare AI</h3>
+                        <p>AI model for health data prediction with clean UI</p>
+                        <div class="project-links">
+                            <span>View Details <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            
+            <!-- Project 2 - Motion Tracking -->
+            <a href="motion-tracking.html" class="project-card glass-card animate delay-1">
+                <img src="https://i0.wp.com/innovationyourself.com/wp-content/uploads/2023/09/featured-1.jpg?fit=1200%2C675&ssl=1" alt="Motion Tracking" class="project-image">
+                <div class="project-overlay">
+                    <div class="project-info">
+                        <h3>Motion Tracking</h3>
+                        <p>Real-time object tracking with OpenCV</p>
+                        <div class="project-links">
+                            <span>View Details <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            
+       
+            
+            <!-- + More Projects Card -->
+            <a href="projects.html" class="project-card glass-card animate delay-2 more-projects">
+                <div class="more-projects-content">
+                    <i class="fas fa-plus-circle"></i>
+                    <h3>View More Projects</h3>
+                    <p>Explore all my work</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+ <section id="training" class="training">
+    <div class="container">
+        <h2 class="section-title animate">Training</h2>
+        <div class="projects-grid">
+            <!-- Add this to your projects or training section -->
+<a href="quantanics.html" class="project-card glass-card animate">
+    <img src="https://hotelleriejobs.s3.amazonaws.com/news/18011/image_url/Capture_d_e_cran_2017-04-13_a__12.21.31.png" alt="Quantanics Training" class="project-image">
+    <div class="project-overlay">
+        <div class="project-info">
+            <h3>Quantanics Training</h3>
+            <p>Motion Tracking & Analysis using OpenCV - Python Developer</p>
+            <div class="project-links">
+                <span>View Details <i class="fas fa-arrow-right"></i></span>
+            </div>
+        </div>
+    </div>
+</a><a href="nullclass.html" class="project-card glass-card animate">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoRVyypt-mAyYKWBZgmGQ3lO1NVRQ0BRoKkw&s" alt="Healthcare AI" class="project-image">
+                <div class="project-overlay">
+                    <div class="project-info">
+                        <h3>Nullclass</h3>
+                        <p>AI model for health data prediction with clean UI</p>
+                        <div class="project-links">
+                            <span>View Details <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            
+       
+            
+           
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title animate">Get In <span>Touch</span></h2>
+            <div class="contact-container">
+                <div class="contact-card glass-card animate">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email</h3>
+                    <a href="mailto:pradesha3112@gmail.com">pradesha3112@gmail.com</a>
+                </div>
+                <div class="contact-card glass-card animate delay-1">
+                    <div class="contact-icon">
+                        <i class="fab fa-linkedin-in"></i>
+                    </div>
+                    <h3>LinkedIn</h3>
+                    <a href="https://www.linkedin.com/in/pradesha" target="_blank">linkedin.com/in/pradesha</a>
+                </div>
+                <div class="contact-card glass-card animate delay-2">
+                    <div class="contact-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <h3>GitHub</h3>
+                    <a href="https://github.com/Pradesha3112" target="_blank">github.com/Pradesha3112</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/pradesha" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/Pradesha3112" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="mailto:pradesha3112@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple animation trigger on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const animateElements = document.querySelectorAll('.animate');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            animateElements.forEach(el => {
+                el.style.opacity = 0;
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
